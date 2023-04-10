@@ -7,7 +7,7 @@ terraform {
   }
 }
 provider "aws" {
-  region     = data.terraform_remote_state.variables.outputs.aws_region
-  access_key = data.terraform_remote_state.variables.outputs.aws_access_key
-  secret_key = data.terraform_remote_state.variables.outputs.aws_secret_key
+  region     = var.aws_region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
