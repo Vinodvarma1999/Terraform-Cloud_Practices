@@ -4,7 +4,7 @@ data "terraform_remote_state" "variables" {
   config = {
     organization = "vinod0510"
     workspaces = {
-      name = "Terraform_Practice"
+      name = "Terraform-Cloud_Practices"
     }
   }
 }
