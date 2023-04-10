@@ -65,27 +65,3 @@ resource "aws_route_table_association" "my-project" {
   subnet_id = aws_subnet.my-project.id
   route_table_id = aws_route_table.my-project.id  
 }
-
-data "aws_key_pair" "my-project" {     #Create a key-pair name with my-project in AWS Console
-  key_name = "my-project"
-}
-
-resource "aws_instance" "my-project" {
-  ami = "ami-0557a15b87f6559cf"
-  instance_type = "t2.micro"
-  count = var.ec2_num
-  key_name = data.aws_key_pair.my-project.key_name
-  subnet_id = aws_subnet.my-project.id
-
-  vpc_security_group_ids = [ 
-    aws_security_group.my-project.id
-  ]
-
-  tags = {
-    Name = "myInstance-project-1"
-  }
-}
-
-output "instance_ips" {
-  value = aws_instance.my-project.*.public_ip
-}
