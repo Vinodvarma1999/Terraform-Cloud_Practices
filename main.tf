@@ -1,3 +1,17 @@
+data "terraform_remote_state" "variables" {
+  backend = "remote"
+
+  config = {
+    organization = "vinod0510"
+    workspaces = {
+      name = "Terraform_Practice"
+    }
+  }
+}
+
+
+
+
 resource "aws_vpc" "my-project" {
   cidr_block = "10.0.0.0/16"
   tags = {
