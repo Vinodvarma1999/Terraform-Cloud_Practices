@@ -84,9 +84,6 @@ resource "aws_instance" "my-project" {
     encrypted = true
     kms_key_id = aws_kms_key.my-kms-key.arn
   }
-  ebs_block_device {
-    device_name = "/dev/sdf"
-  }
 
   tags = {
     Name = "my-ec2"
