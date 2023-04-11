@@ -79,7 +79,7 @@ resource "aws_instance" "my-project" {
   
   root_block_device {              # Attach the EBS volume to the instance
     volume_type = "gp2"
-    volume_size = 10
+    volume_size = 8
     delete_on_termination = true
     encrypted = true
     kms_key_id = aws_kms_key.my-kms-key.arn
