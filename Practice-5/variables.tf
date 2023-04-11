@@ -12,3 +12,13 @@ variable "instance_type" {
   type        = string
   description = "The instance type for the EC2 instance"
 }
+
+variable "aws_access_key" {
+  type        = string
+  description = "Using a access key to deploy aws resources"
+}
+
+variable "aws_secret_key" {
+  type        = string
+  description = "Using a secret key to deploy aws resources"
+}
