@@ -32,7 +32,7 @@ resource "aws_security_group" "my-sg" {
 }
 
 # Creating a Subnet
-resource "aws_subnet" "my-subnet-1" {
+resource "aws_subnet" "my-subnet" {
   vpc_id = aws_vpc.my-vpc.id
   cidr_block = "10.0.1.0/24"
   availability_zone = "us-east-1a"
