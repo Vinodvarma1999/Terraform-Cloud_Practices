@@ -86,7 +86,6 @@ resource "aws_instance" "my-project" {
   }
   ebs_block_device {
     device_name = "/dev/sdf"
-    volume_id   = aws_ebs_volume.my-volume.id
   }
 
   tags = {
