@@ -82,7 +82,7 @@ resource "aws_instance" "my-project" {
     volume_size = 10
     delete_on_termination = true
     encrypted = true
-    kms_key_id = aws_kms_key.my_kms_key.arn
+    kms_key_id = aws_kms_key.my-kms-key.arn
   }
   ebs_block_device {
     device_name = "/dev/sdf"
