@@ -42,16 +42,21 @@ resource "aws_subnet" "my-subnet-1" {
 }
 
 # Creating a new Key-Pair 
-resource "aws_key_pair" "my-keypair" {
+resource "tls_private_key" "my_keypair" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "my_keypair" {
   key_name   = "my-keypair"
-  public_key = file("~/.ssh/my-keypair.pub") # Replace with your public key file path
+  public_key = tls_private_key.my_keypair.public_key_openssh
 }
 
 # Creating EC2 Instance
 resource "aws_instance" "my-project" {
   ami = var.ami_id
   instance_type = var.instance_type
-  key_name = aws_key_pair.my-keypair.key_name
+  key_name = aws_key_pair.my_keypair.key_name
   subnet_id = aws_subnet.my-subnet.id
   
   vpc_security_group_ids = [
