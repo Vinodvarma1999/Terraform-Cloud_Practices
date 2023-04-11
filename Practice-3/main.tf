@@ -41,6 +41,17 @@ resource "aws_subnet" "my-subnet" {
   }  
 }
 
+# Creating a new Key-Pair 
+resource "tls_private_key" "my_keypair" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "my_keypair" {
+  key_name   = "my-keypair"
+  public_key = tls_private_key.my_keypair.public_key_openssh
+}
+
 # Create a new KMS key
 resource "aws_kms_key" "my-kms-key" {
   description = "My-KMS-key"
@@ -53,17 +64,6 @@ resource "aws_ebs_volume" "my-volume" {
   type              = "gp2"
   encrypted         = true
   kms_key_id        = aws_kms_key.my-kms-key.arn
-}
-
-# Creating a new Key-Pair 
-resource "tls_private_key" "my_keypair" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "aws_key_pair" "my_keypair" {
-  key_name   = "my-keypair"
-  public_key = tls_private_key.my_keypair.public_key_openssh
 }
 
 # Creating EC2 Instance
@@ -79,7 +79,7 @@ resource "aws_instance" "my-project" {
   
   root_block_device {              # Attach the EBS volume to the instance
     volume_type = "gp2"
-    volume_size = 8
+    volume_size = 10
     delete_on_termination = true
     encrypted = true
     kms_key_id = aws_kms_key.my-kms-key.arn
