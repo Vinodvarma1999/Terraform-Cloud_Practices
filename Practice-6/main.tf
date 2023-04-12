@@ -12,3 +12,10 @@ resource "tfe_workspace" "test" {
     branch     = "main"
   }
 }
+
+resource "tfe_workspace_variable" "my-var" {
+  key          = "username"
+  value        = var.db_username
+  sensitive    = true
+  workspace_id = tfe_workspace.test.id
+}
