@@ -7,3 +7,8 @@ variable "db_username" {
   type        = string
   description = "A sensitive variable"
 }
+
+variable "oauthgithubtoken" {
+  type        = string
+  description = "A sensitive github-token"
+}
