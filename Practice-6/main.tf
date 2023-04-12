@@ -2,7 +2,6 @@
 resource "tfe_workspace" "test" {
   name         = "my-workspace-name"
   tag_names    = ["test", "app"]
-  working_directory = "./Practice-6"
   auto_apply        = true
   queue_all_runs    = true
 }
