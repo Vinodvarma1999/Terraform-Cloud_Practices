@@ -1,6 +1,7 @@
 resource "tfe_workspace" "test" {
   name         = "my-workspace-name"
   tag_names    = ["test", "app"]
+  oauth_token_id   = var.oauthgithubtoken
   vcs_repo {
     identifier = "https://github.com/Vinodvarma1999/Terraform-Cloud_Practices.git"
     branch     = "main"
