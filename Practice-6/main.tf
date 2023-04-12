@@ -18,6 +18,7 @@ resource "tfe_variable" "my-var" {
   key          = "username"
   value        = var.db_username
   sensitive    = true
+  category     = "terraform"
   workspace_id = tfe_workspace.test.id
   description  = "a useful description"
 }
