@@ -1,17 +1,17 @@
-resource "tfe_organization" "vinod05-Test" {
-  name  = "my-org-name"
+resource "tfe_organization" "UAT-Test" {
+  name  = "uatdevprod"
   email = "xyz@gmail.com"
 }
 
 resource "tfe_workspace" "UAT-Test" {
   name         = "my-workspace-name"
-  organization = tfe_organization.vinod05-Test.name
+  organization = tfe_organization.UAT-Test.name
 }
 
 resource "tfe_variable_set" "UAT-Test" {
   name          = "Test-variable-test"
   description   = "Some-description."
-  organization  = tfe_organization.vinod05-Test.name
+  organization  = tfe_organization.UAT-Test.name
 }
 
 resource "tfe_workspace_variable_set" "test" {
