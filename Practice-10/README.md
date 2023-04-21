@@ -7,4 +7,4 @@
 <img alt="apply-status" width=800 height=350 src="Images/2.jpg">
 
 ### deployed
-<img alt="eks-cluster" width=800 height=350 src="Images/3jpg">
+<img alt="eks-cluster" width=800 height=350 src="Images/3.jpg">
