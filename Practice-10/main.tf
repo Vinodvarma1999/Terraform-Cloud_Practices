@@ -87,7 +87,7 @@ resource "aws_route_table_association" "my-pubRT-assoc" {
 
 # EKS Cluster IAM Role
 resource "aws_iam_role" "cluster" {
-  name = "${var.project}-Cluster-Role"
+  name = "My-Cluster-Role"
 
   assume_role_policy = <<POLICY
 {
@@ -117,7 +117,6 @@ resource "aws_eks_cluster" "my-eks" {
   version  = "1.21"
 
   vpc_config {
-    # security_group_ids      = [aws_security_group.eks_cluster.id, aws_security_group.eks_nodes.id]
     subnet_ids              = flatten([my-subnet-1.id, my-subnet-1.id])
     endpoint_private_access = true
     endpoint_public_access  = true
@@ -143,7 +142,7 @@ resource "aws_security_group" "eks_cluster" {
 resource "aws_security_group" "eks_nodes" {
   name        = "my-node-sg"
   description = "Security group for all nodes in the cluster"
-  vpc_id      = aws_vpc.this.id
+  vpc_id      = aws_vpc.my-vpc.id
 
   egress {
     from_port   = 0
