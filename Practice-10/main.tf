@@ -6,36 +6,6 @@ resource "aws_vpc" "my-vpc" {
   }
 }
 
-# Creating a Security Group
-resource "aws_security_group" "My-SG" {
-  name = "My-SG"
-  description = "Allow SSH and HTTP Connection"
-
-  ingress {
-    from_port = 80
-    to_port = 80
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    from_port = 22
-    to_port = 22
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  vpc_id = aws_vpc.my-vpc.id
-  tags = {
-    Name = "My-SG"
-  }
-}
-
 # Creating a Subnet-1
 resource "aws_subnet" "my-subnet-1" {
   vpc_id = aws_vpc.my-vpc.id
@@ -236,14 +206,3 @@ resource "aws_iam_role_policy_attachment" "node_AmazonEC2ContainerRegistryReadOn
   role       = aws_iam_role.node.name
 }
 
-output "cluster_name" {
-  value = aws_eks_cluster.my-eks.name
-}
-
-output "cluster_endpoint" {
-  value = aws_eks_cluster.my-eks.endpoint
-}
-
-output "cluster_ca_certificate" {
-  value = aws_eks_cluster.my-eks.certificate_authority[0].data
-}
