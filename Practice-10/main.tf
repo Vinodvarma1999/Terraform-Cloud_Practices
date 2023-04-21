@@ -80,8 +80,13 @@ resource "aws_route_table" "my-pubRT" {
 }
 
 # attaching a subnet to public Route table
-resource "aws_route_table_association" "my-pubRT-assoc" {
-  subnet_ids = [aws_subnet.my-subnet-1.id, aws_subnet.my-subnet-2.id]
+resource "aws_route_table_association" "my-pub-1-assoc" {
+  subnet_id = aws_subnet.my-subnet-1.id
+  route_table_id = aws_route_table.my-pubRT.id  
+}
+
+resource "aws_route_table_association" "my-pub-2-assoc" {
+  subnet_id = aws_subnet.my-subnet-2.id
   route_table_id = aws_route_table.my-pubRT.id  
 }
 
@@ -117,7 +122,7 @@ resource "aws_eks_cluster" "my-eks" {
   version  = "1.21"
 
   vpc_config {
-    subnet_ids              = [my-subnet-1.id, my-subnet-2.id]
+    subnet_ids              = [aws_subnet.my-subnet-1.id, aws_subnet.my-subnet-2.id]
     endpoint_private_access = true
     endpoint_public_access  = true
     public_access_cidrs     = ["0.0.0.0/0"]
