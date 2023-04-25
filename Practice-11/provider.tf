@@ -8,5 +8,5 @@ terraform {
 }
 
 provider "github" {
-  token = var.hubtoken
+  token = var.github_token
 }
