@@ -1,5 +1,5 @@
-resource "github_repository" "example" {
-  name               = "example"
+resource "github_repository" "terra" {
+  name               = "TF-Practice"
   description        = "My awesome codebase"
   auto_init          = true   # to initialize the repository with a README file
   allow_merge_commit = false  # to disallow merge commits.
