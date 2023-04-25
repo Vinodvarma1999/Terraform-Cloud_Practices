@@ -1,4 +1,4 @@
 resource "github_branch" "development" {
-  repository = "Terraform-Cloud_Practices"
+  repository = "Vinodvarma1999/Kubernetes"
   branch     = "development"
 }
