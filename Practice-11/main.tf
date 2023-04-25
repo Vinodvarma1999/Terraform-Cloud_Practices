@@ -1,3 +1,13 @@
+resource "github_organization" "example_org" {
+  login         = "vinod"
+  admin_username = "vinod0510"
+  billing_email = "example@example.com"
+  profile_name  = "Example-Organization"
+  description   = "This is an example organization created using Terraform"
+  email         = "example@example.com"
+  members_can_create_repositories = true
+}
+
 resource "github_repository" "example" {
   name               = "example"
   description        = "My awesome codebase"
