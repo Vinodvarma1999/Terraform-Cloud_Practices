@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "github" {
-  token = "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"
+  token = "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"
   owner = "Vinodvarma1999"
 }
