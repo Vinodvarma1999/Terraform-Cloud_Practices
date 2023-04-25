@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "github" {
-  token = "ot-hKrei3yCV3QtTU9U"
+  token = " " # PersonalAccessToken-OR-OAuth-Token
   owner = "Vinodvarma1999"
 }
