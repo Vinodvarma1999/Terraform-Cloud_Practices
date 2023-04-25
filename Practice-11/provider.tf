@@ -8,5 +8,6 @@ terraform {
 }
 
 provider "github" {
+  version      = "2.8.0"
   token = var.github_token
 }
