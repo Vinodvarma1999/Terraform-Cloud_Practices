@@ -38,7 +38,7 @@ data "aws_key_pair" "example" {
 
 
 resource "aws_instance" "example" {
-  ami = var.ami_id
+  ami = data.aws_ami.example.id
   instance_type = var.instance_type
   key_name = data.aws_key_pair.example.key_name
   subnet_id = data.aws_subnet.example.id
