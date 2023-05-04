@@ -33,7 +33,7 @@ data "aws_subnet" "example" {
 resource "aws_instance" "example" {
   ami = data.aws_ami.example.id
   instance_type = var.instance_type
-  subnet_id = data.aws_subnet.example["subnet_3"].id               # var.subnets["subnet-1"].id 
+  subnet_id = data.aws_subnet.example["subnet_3"].id           
   vpc_security_group_ids = [
     data.aws_security_group.example.id
   ]
