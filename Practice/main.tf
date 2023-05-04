@@ -42,6 +42,7 @@ resource "aws_instance" "example" {
   instance_type = var.instance_type
   key_name = data.aws_key_pair.example.key_name
   subnet_id = data.aws_subnet.example.id
+  associate_public_ip_address = true   # add this line to associate a public IP
   
   vpc_security_group_ids = [
     data.aws_security_group.example.id
