@@ -10,6 +10,18 @@ variable "instance_type" {
   description = "The instance type for the EC2 instance"
 }
 
+# variable "my_map_variable" {
+#   type = map(string)
+#   default = {
+#     subnet-1 = ""
+#     subnet-2 = "value2"
+#     subnet-3 = "value3"
+#     subnet-4 = "value4"
+#     subnet-5 = "value5"
+#     subnet-6 = "value6"
+#   }
+# }
+
 variable "aws_access_key" {
   type        = string
   description = "Using a access key to deploy aws resources"
