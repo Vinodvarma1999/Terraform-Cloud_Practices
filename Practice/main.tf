@@ -5,13 +5,6 @@ data "aws_vpc" "example" {
   }
 }
 
-data "aws_subnet" "example" {
-  filter {
-    name   = "tag:Name"
-    values = ["my-subnet-1"]
-  }
-}
-
 data "aws_security_group" "example" {
   name        = "my-SG"
   vpc_id      = data.aws_vpc.example.id
@@ -32,10 +25,15 @@ data "aws_ami" "example" {
   }
 }
 
+data "aws_subnet" "example" {
+  for_each = var.subnets
+  id       = each.value.id
+}
+
 resource "aws_instance" "example" {
   ami = data.aws_ami.example.id
   instance_type = var.instance_type
-  subnet_id = data.aws_subnet.example.id 
+  subnet_id = data.aws_subnet.example["subnet_3"].id               # var.subnets["subnet-1"].id 
   vpc_security_group_ids = [
     data.aws_security_group.example.id
   ]
