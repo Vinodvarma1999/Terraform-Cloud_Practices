@@ -10,11 +10,6 @@ variable "instance_type" {
   description = "The instance type for the EC2 instance"
 }
 
-# variable "ami_id" {
-#   type        = string
-#   description = "The ID of the AMI to use for the EC2 instance"
-# }
-
 variable "aws_access_key" {
   type        = string
   description = "Using a access key to deploy aws resources"
