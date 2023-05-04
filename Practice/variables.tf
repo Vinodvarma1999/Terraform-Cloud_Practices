@@ -10,17 +10,26 @@ variable "instance_type" {
   description = "The instance type for the EC2 instance"
 }
 
-# variable "my_map_variable" {
-#   type = map(string)
-#   default = {
-#     subnet-1 = ""
-#     subnet-2 = "value2"
-#     subnet-3 = "value3"
-#     subnet-4 = "value4"
-#     subnet-5 = "value5"
-#     subnet-6 = "value6"
-#   }
-# }
+variable "subnets" {
+  type = map(object({
+    id                = string
+    availability_zone = string
+  }))
+  default = {
+    subnet_1 = {
+      id                = "subnet-0cdf91acd355832da"
+      availability_zone = "us-east-1a"
+    },
+    subnet_2 = {
+      id                = "subnet-00c55c0db4e18f334"
+      availability_zone = "us-east-1b"
+    },
+    subnet_3 = {
+      id                = "subnet-0f16e27f5f62bdb70"
+      availability_zone = "us-east-1c"
+    },
+  }
+}
 
 variable "aws_access_key" {
   type        = string
