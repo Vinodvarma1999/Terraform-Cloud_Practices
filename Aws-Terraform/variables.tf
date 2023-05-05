@@ -4,15 +4,10 @@ variable "instance_type" {
   description = "The instance type for the EC2 instance"
 }
 
-variable "aws_regions" {
-  type = map(string)
+variable "aws_region" {
+  type        = string
+  default     = "us-east-1"
   description = "The AWS region to use for resources"
-  default = {
-    region-1      = "us-east-1"
-    # region-2      = "us-east-2"
-    # region-3      = "us-west-1"
-    # region-4      = "us-west-2"
-  }
 }
 
 variable "subnets" {
