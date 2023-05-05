@@ -22,6 +22,7 @@ data "aws_ami" "example" {
 resource "aws_instance" "example" {
   ami = data.aws_ami.example.id
   instance_type = var.instance_type
+  availability_zone = "${var.aws_regions["region-1"]}"
   subnet_id = data.aws_subnet.example["subnet_1"].id           
   vpc_security_group_ids = [
     var.security_groups["sg_1"], 
