@@ -52,3 +52,15 @@ variable "aws_secret_key" {
   type        = string
   description = "Using a secret key to deploy aws resources"
 }
+
+variable "location" {
+  default = "IBCI"
+}
+
+variable "app_name" {
+  default = "XPC"
+}
+
+variable "env" {
+  default = 3
+}
