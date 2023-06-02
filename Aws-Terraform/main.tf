@@ -1,32 +1,102 @@
-data "aws_vpc" "example" {
-  filter {
-    name   = "tag:Name"
-    values = ["my-vpc"]
-  }
-}
 
-data "aws_ami" "example" {
-  owners = ["self"]
-  most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["my-AMI"]
-  }
-  filter {
-    name   = "state"
-    values = ["available"]
-  }
-}
-
-resource "aws_instance" "example" {
-  ami = data.aws_ami.example.id
-  instance_type = var.instance_type
-  subnet_id = var.subnets["subnet_1"].id           
-  vpc_security_group_ids = [
-    var.security_groups["sg_1"], 
-  ]
+# Creating a VPC
+resource "aws_vpc" "my-vpc" {
+  cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "my-EC2"
+    Name = "my-vpc"
   }
 }
+
+
+# Creating a Security Group 
+resource "aws_security_group" "my-sg" {
+  name = "my-sg"
+  vpc_id = aws_vpc.my-vpc.id
+  
+  ingress  {
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] 
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "my-sg"
+  }
+}
+
+# Creating a Subnet
+resource "aws_subnet" "my-subnet" {
+  vpc_id = aws_vpc.my-vpc.id
+  cidr_block = "10.0.1.0/24"
+  availability_zone = "us-east-1a"
+  tags = {
+    Name = "mysubnet"
+  }  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+# Creating EC2 Instance
+resource "aws_instance" "my-project" {
+  ami = "ami-053b0d53c279acc90"
+  instance_type = "t3.micro"
+
+  subnet_id = aws_subnet.my-subnet.id
+
+  vpc_security_group_ids = [
+    aws_security_group.my-sg.id
+  ]
+
+  tags = {
+    Name = "${var.location}${var.app_name}${var.env}"
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
