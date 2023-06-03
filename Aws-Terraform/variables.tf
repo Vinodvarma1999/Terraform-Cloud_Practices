@@ -69,3 +69,8 @@ variable "app_name" {
 variable "env" {
   default = 3
 }
+
+variable "service_name" {
+  default = VM
+} 
+
