@@ -42,7 +42,6 @@ resource "aws_subnet" "my-subnet" {
 
 locals {
   last_used_number = try(tonumber(file("${path.module}/last_used_number.txt")), 0)
-  formatted_number = format("%03d", local.last_used_number + count.index + 1)
 }
 
 # Write the last used number to a local file
@@ -63,6 +62,6 @@ resource "aws_instance" "my-project" {
   ]
 
   tags = {
-    Name = "${var.location}${var.app_name}${var.env}${var.service_name}${local.formatted_number}"
+    Name = "${var.location}${var.app_name}${var.env}${var.service_name}${format("%03d", local.last_used_number + count.index + 1)}"
   }
 } 
