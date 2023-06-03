@@ -45,7 +45,7 @@ variable "security_groups" {
 
 variable "instance_count" {
   type = number
-  default = 4
+  default = 2
 }  
 
 variable "aws_access_key" {
