@@ -43,6 +43,11 @@ variable "security_groups" {
   }
 }
 
+variable "instance_count" {
+  type = number
+  default = 3
+}  
+
 variable "aws_access_key" {
   type        = string
   description = "Using a access key to deploy aws resources"
