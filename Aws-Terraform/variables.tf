@@ -71,6 +71,7 @@ variable "env" {
 }
 
 variable "service_name" {
-  default = VM
+  type = string
+  default = "VM"
 } 
 
