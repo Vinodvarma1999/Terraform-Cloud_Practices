@@ -3,6 +3,11 @@ variable "instance_type" {
   description = "The instance type for the EC2 instance"
 }
 
+variable "aws_ami" {
+  type = string
+  default = "ami-053b0d53c279acc90"
+} 
+
 variable "instance_count" {
   type = number
 }  
@@ -20,13 +25,5 @@ variable "aws_access_key" {
 variable "aws_secret_key" {
   type        = string
   description = "Using a secret key to deploy aws resources"
-}
-
-variable "subnets" {
-  type = string
-}
-
-variable "security_groups" {
-  type = string
 }
 
