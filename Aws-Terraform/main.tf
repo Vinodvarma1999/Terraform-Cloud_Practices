@@ -63,13 +63,13 @@ resource "aws_instance" "my-project" {
   ]
 
   tags = {
-    Name = local.instance_names[count.index]
+    Name = "${var.location}${var.app_name}${var.env}${var.service_name}${local.formatted_number}${count.index}"
   }
 }
 
-locals {
-  instance_names = [for i in range(var.instance_count) : "${var.location}${var.app_name}${var.env}${var.service_name}${local.formatted_number + i}"]
-}  
+# locals {
+#   instance_names = [for i in range(var.instance_count) : "${var.location}${var.app_name}${var.env}${var.service_name}${local.formatted_number + i}"]
+# }  
   
   
   
