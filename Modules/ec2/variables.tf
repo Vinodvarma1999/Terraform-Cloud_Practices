@@ -5,9 +5,17 @@ variable "instance_type" {
 
 variable "aws_ami" {
   type = string
-  default = "ami-053b0d53c279acc90"
-} 
+#   default = "ami-053b0d53c279acc90"
+}
 
+variable "aws_subnet_id" {
+  type = string
+}  
+
+variable "aws_security_group" {
+  type = string
+}  
+  
 variable "instance_count" {
   type = number
 }  
