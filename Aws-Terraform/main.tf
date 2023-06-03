@@ -1,5 +1,3 @@
-
-
 # Creating a VPC
 resource "aws_vpc" "my-vpc" {
   cidr_block = "10.0.0.0/16"
@@ -7,7 +5,6 @@ resource "aws_vpc" "my-vpc" {
     Name = "my-vpc"
   }
 }
-
 
 # Creating a Security Group 
 resource "aws_security_group" "my-sg" {
@@ -43,16 +40,15 @@ resource "aws_subnet" "my-subnet" {
   }  
 }
 
+locals {
+  last_used_number = try(file("${path.module}/last_used_number.txt"), "0")
+}
 
-
-
-
-
-
-
-
-
-
+# Write the last used number to a local file
+resource "local_file" "last_used_number_file" {
+  content  = local.last_used_number + var.instance_count
+  filename = "${path.module}/last_used_number.txt"
+}
 
 # Creating EC2 Instance
 resource "aws_instance" "my-project" {
@@ -70,33 +66,4 @@ resource "aws_instance" "my-project" {
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
 
