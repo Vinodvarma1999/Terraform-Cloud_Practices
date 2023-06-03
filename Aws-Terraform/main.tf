@@ -43,7 +43,7 @@ resource "aws_subnet" "my-subnet" {
 locals {
   last_used_number = try(file("${path.module}/last_used_number.txt"), "1")
   formatted_number = format("%03d", local.last_used_number)
-  truncated_number = slice(local.formatted_number, length(local.formatted_number) - 2, length(local.formatted_number))
+  truncated_number = substr(local.formatted_number, -2)
 }
 
 # Write the last used number to a local file
