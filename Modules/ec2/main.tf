@@ -14,7 +14,7 @@ resource "aws_instance" "my-project" {
   instance_type = var.instance_type
   count         = var.instance_count
   subnet_id = var.aws_subnet_id
-  vpc_security_group_id = var.aws_security_group
+  vpc_security_group_ids = [var.aws_security_group]
 
   tags = {
     Name = "${var.location}${var.app_name}${var.env}${var.service_name}${format("%03d", local.last_used_number + count.index)}"
