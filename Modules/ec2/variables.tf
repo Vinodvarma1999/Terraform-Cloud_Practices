@@ -6,7 +6,7 @@ variable "instance_type" {
 
 variable "instance_count" {
   type = number
-  default = 12
+#   default = 12
 }  
 
 variable "aws_region" {
