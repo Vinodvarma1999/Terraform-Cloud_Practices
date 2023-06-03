@@ -41,7 +41,7 @@ resource "aws_subnet" "my-subnet" {
 }
 
 locals {
-  last_used_number = try(tonumber(file("${path.module}/last_used_number.txt")), 0)
+  last_used_number = try(tonumber(file("${path.module}/last_used_number.txt")), 1)
 }
 
 # Write the last used number to a local file
