@@ -52,8 +52,8 @@ resource "local_file" "last_used_number_file" {
 
 # Creating EC2 Instance
 resource "aws_instance" "my-project" {
-  ami = "ami-053b0d53c279acc90"
-  instance_type = "t3.micro"
+  ami = var.aws_ami
+  instance_type = var.instance_type
   count         = var.instance_count
   subnet_id = aws_subnet.my-subnet.id
 
