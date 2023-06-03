@@ -1,45 +1,3 @@
-# Creating a VPC
-resource "aws_vpc" "my-vpc" {
-  cidr_block = "10.0.0.0/16"
-  tags = {
-    Name = "my-vpc"
-  }
-}
-
-# Creating a Security Group 
-resource "aws_security_group" "my-sg" {
-  name = "my-sg"
-  vpc_id = aws_vpc.my-vpc.id
-
-  ingress  {
-    from_port = 22
-    to_port = 22
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] 
-  }
-
-  egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "my-sg"
-  }
-}
-
-# Creating a Subnet
-resource "aws_subnet" "my-subnet" {
-  vpc_id = aws_vpc.my-vpc.id
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
-  tags = {
-    Name = "mysubnet"
-  }  
-}
-
 locals {
   last_used_number = try(tonumber(file("${path.module}/last_used_number.txt")), 1)
 }
@@ -55,11 +13,8 @@ resource "aws_instance" "my-project" {
   ami = var.aws_ami
   instance_type = var.instance_type
   count         = var.instance_count
-  subnet_id = aws_subnet.my-subnet.id
-
-  vpc_security_group_ids = [
-    aws_security_group.my-sg.id
-  ]
+  subnet_id = var.aws_subnet_id
+  vpc_security_group_ids = var.aws_security_group
 
   tags = {
     Name = "${var.location}${var.app_name}${var.env}${var.service_name}${format("%03d", local.last_used_number + count.index)}"
