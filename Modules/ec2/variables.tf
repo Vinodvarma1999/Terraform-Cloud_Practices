@@ -13,7 +13,7 @@ variable "aws_subnet_id" {
 }  
 
 variable "aws_security_group" {
-  type = string
+  type = list(string)
 }  
   
 variable "instance_count" {
