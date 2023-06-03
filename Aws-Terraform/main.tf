@@ -63,7 +63,7 @@ resource "aws_instance" "my-project" {
   ]
 
   tags = {
-    Name = "${var.location}${var.app_name}${var.env}${var.service_name}${local.last_used_number + count.index}"
+    Name = "${var.location}${var.app_name}${var.env}${var.service_name}${formatted_number + count.index}"
 
   }
 }
