@@ -1,4 +1,4 @@
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
   aws_ami       = "ami-053b0d53c279acc90"
   instance_count = 3
   aws_security_group = ["sg-072962cbf5e6df7c8"]
