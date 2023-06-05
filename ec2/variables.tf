@@ -1,4 +1,4 @@
-  ec2_config = {
+  ec2 = {
     instance_type       = string
     aws_ami             = string
     instance_count      = number
