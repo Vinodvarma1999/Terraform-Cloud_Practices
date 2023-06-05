@@ -3,10 +3,10 @@ locals {
 }
 
 # Write the last used number to a local file
-resource "local_file" "last_used_number_file" {
-  content  = tostring(local.last_used_number + var.instance_count)
-  filename = "${path.module}/last_used_number.txt"
-}
+# resource "local_file" "last_used_number_file" {
+#   content  = tostring(local.last_used_number + var.instance_count)
+#   filename = "${path.module}/last_used_number.txt"
+# }
 
 # Creating EC2 Instance
 resource "aws_instance" "my-project" {
