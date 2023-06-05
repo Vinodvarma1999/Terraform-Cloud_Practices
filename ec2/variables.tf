@@ -1,4 +1,5 @@
-  ec2 = {
+variable "ec2" {
+  type = map(object({
     instance_type       = string
     aws_ami             = string
     instance_count      = number
@@ -7,4 +8,5 @@
     aws_secret_key      = string
     aws_security_group  = list(string)
     aws_subnet_id       = string
-  }
+  }))
+}
