@@ -1,8 +1,10 @@
-variable "instance_type" {}
-variable "aws_ami" {}
-variable "instance_count" {}
-variable "aws_region" {}
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
-variable "aws_security_group" {}
-variable "aws_subnet_id" {}
+  ec2_config = {
+    instance_type       = string
+    aws_ami             = string
+    instance_count      = number
+    aws_region          = string
+    aws_access_key      = string
+    aws_secret_key      = string
+    aws_security_group  = list(string)
+    aws_subnet_id       = string
+  }
