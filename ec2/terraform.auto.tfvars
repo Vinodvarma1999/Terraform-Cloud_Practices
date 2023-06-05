@@ -1,4 +1,3 @@
-ec2_config = {
   instance_type = "t3.micro"
   aws_ami       = "ami-053b0d53c279acc90"
   instance_count = 3
@@ -7,4 +6,3 @@ ec2_config = {
   aws_region         = "us-east-1"
   aws_access_key     = "AKIA5TO7FP6W3U6CG43V"
   aws_secret_key     = "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"
-}
