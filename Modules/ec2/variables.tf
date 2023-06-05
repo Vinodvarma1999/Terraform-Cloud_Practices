@@ -5,7 +5,6 @@ variable "instance_type" {
 
 variable "aws_ami" {
   type = string
-#   default = "ami-053b0d53c279acc90"
 }
 
 variable "aws_subnet_id" {
