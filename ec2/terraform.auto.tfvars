@@ -6,3 +6,4 @@
   aws_region         = "us-east-1"
   aws_access_key     = "AKIA5TO7FP6WZZGGIFO7"
   aws_secret_key     = "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"
+  availability_zone  = "us-east-1a"
