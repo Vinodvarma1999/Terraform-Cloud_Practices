@@ -1,6 +1,9 @@
 variable "instance_type" {
 }
 
+variable "availability_zone" {
+}
+
 variable "aws_ami" {
 }
 
