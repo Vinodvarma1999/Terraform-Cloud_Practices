@@ -15,6 +15,10 @@ variable "aws_subnet_id" {
 variable "aws_security_group" {
   type = list(string)
 }  
+
+variable "availability_zone" {
+  type = string
+}
   
 variable "instance_count" {
   type = number
