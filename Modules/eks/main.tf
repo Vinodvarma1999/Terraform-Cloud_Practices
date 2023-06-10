@@ -67,10 +67,10 @@ resource "aws_eks_cluster" "example" {
  role_arn       = aws_iam_role.cluster.arn
  version        = var.eks_cluster_version 
  encryption_config {
-   provider = {
+   provider {
      key_arn = var.eks_kms_key
    }
-   resources {
+   resources = {
      secrets = var.eks_secret
      config_maps = var.eks_config_map
    }
@@ -99,7 +99,7 @@ resource "aws_eks_cluster" "example" {
     delete = "30m"
     update = "30m"
  }
- tags {
+ tags = {
    Name = "UAT"
  }
  depends_on = [
