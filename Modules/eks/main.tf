@@ -71,8 +71,8 @@ resource "aws_eks_cluster" "example" {
      key_arn = var.eks_kms_key
    }
    resources = {
-     secrets = var.eks_secret
-     config_maps = var.eks_config_map
+     secrets = [var.eks_secret]
+     config_maps = [var.eks_config_map]
    }
  }
 
