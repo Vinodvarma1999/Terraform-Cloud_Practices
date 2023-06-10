@@ -136,7 +136,7 @@ resource "aws_security_group_rule" "nodes_internal" {
  from_port   = 0
  to_port     = 65535
  protocol    = "-1"
- security-group_id  = aws_security_group.eks_node.id
+ security_group_id  = aws_security_group.eks_node.id
  source_security_group_id  = aws_security_group.eks_node.id
 }
  
@@ -146,7 +146,7 @@ resource "aws_security_group_rule" "node_cluster_inbound" {
  from_port   = 1025
  to_port     = 65535
  protocol    = tcp
- security-group_id  = aws_security_group.eks_node.id
+ security_group_id  = aws_security_group.eks_node.id
  source_security_group_id  = aws_security_group.eks_cluster.id
 }
 
@@ -156,7 +156,7 @@ resource "aws_security_group_rule" "cluster_inbound" {
  from_port   = 443
  to_port     = 443
  protocol    = tcp
- security-group_id  = aws_security_group.eks_cluster.id
+ security_group_id  = aws_security_group.eks_cluster.id
  source_security_group_id  = aws_security_group.eks_node.id
 }
 
@@ -166,7 +166,7 @@ resource "aws_security_group_rule" "cluster_outbound" {
  from_port   = 1024
  to_port     = 65535
  protocol    = tcp 
- security-group_id  = aws_security_group.eks_cluster.id
+ security_group_id  = aws_security_group.eks_cluster.id
  source_security_group_id  = aws_security_group.eks_node.id
 }
 
