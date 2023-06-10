@@ -133,3 +133,7 @@ variable "node_AmazonEC2ContainerRegistryReadOnly" {
  description = "Represents the policy associated with read-only access to the Amazon ECR (Elastic Container Registry)."
 }
 
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+
+
