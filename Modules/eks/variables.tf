@@ -84,12 +84,12 @@ variable "eks_service_ipv4_cidr" {
 } 
 
 variable "eks_config_map" {
- type = bool
+ type = string
  description = "Encryption enabled for config_map."
 }
 
 variable "eks_secret" {
- type = bool
+ type = string
  description = "Encryption enabled for secrets."
 }
 
