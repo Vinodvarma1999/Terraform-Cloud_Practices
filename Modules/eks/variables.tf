@@ -23,7 +23,7 @@ variable "public_ip_launch" {
  description = "Determines whether instances launched in the subnet will have public IP addresses."
 }
 
-variable "var.subnet_tags" {
+variable "subnet_tags" {
  type = map(string)
  description = "A map of string values used to tag the subnet resource."
 }
