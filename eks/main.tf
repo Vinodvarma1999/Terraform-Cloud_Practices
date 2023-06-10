@@ -38,6 +38,7 @@ module "my-module" {
   node_AmazonEKSWorkerNodePolicy     = each.value.node_AmazonEKSWorkerNodePolicy
   node_AmazonEKS_CNI_Policy  = each.value.node_AmazonEKS_CNI_Policy
   node_AmazonEC2ContainerRegistryReadOnly = each.value.node_AmazonEC2ContainerRegistryReadOnly
+  aws_region              = "us-east-1"
   aws_access_key          = var.aws_access_key
   aws_secret_key          = var.aws_secret_key
 }
