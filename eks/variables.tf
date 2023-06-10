@@ -1,1 +1,32 @@
-variable "eks_cluster" {}
+variable "eks_cluster" {
+  type    = map(any)
+  default = {
+    cidr_block                    = string
+    vpc_tags                      = map(string)
+    subnet_cidr_block             = string
+    subnet_availablity_zone       = string
+    public_ip_launch              = bool
+    subnet_tags                   = map(string)
+    igw_tags                      = map(string)
+    route_table_tags              = map(string)
+    cluster_iam_role_name         = string
+    policy_arn                    = string
+    eks_name                      = string
+    eks_cluster_version           = string
+    eks_kms_key                   = string
+    eks_endpoint_private_access   = bool
+    eks_endpoint_public_access    = bool
+    eks_public_access_cidrs       = list(string)
+    eks_service_ipv4_cidr         = string
+    eks_config_map                = bool
+    eks_secret                    = bool
+    eks_cluster_sg_name           = string
+    eks_cluster_sg_tags           = map(string)
+    eks_node_sg_name              = string
+    eks_node_sg_tags              = map(string)
+    node_iam_role_name            = string
+    node_AmazonEKSWorkerNodePolicy = string
+    node_AmazonEKS_CNI_Policy     = string
+    node_AmazonEC2ContainerRegistryReadOnly = string
+  }
+}
