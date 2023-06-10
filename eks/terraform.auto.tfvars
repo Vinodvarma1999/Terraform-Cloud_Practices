@@ -1,5 +1,3 @@
-eks_cluster = {
-  eks_1 = {
     // VPC Configuration
     cidr_block                 = "10.0.0.0/16"
     vpc_tags                   = { Name = "MyVPC" }
@@ -42,5 +40,3 @@ eks_cluster = {
     node_AmazonEKSWorkerNodePolicy   = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
     node_AmazonEKS_CNI_Policy        = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
     node_AmazonEC2ContainerRegistryReadOnly = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-  }
-}
