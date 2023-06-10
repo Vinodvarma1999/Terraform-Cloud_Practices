@@ -20,5 +20,5 @@ The EKS cluster module can be customized based on your specific requirements. So
 - Adding worker nodes: Adjust the module input variables in your root module's `.tf` files to increase the number of worker nodes in the cluster to handle increased workload.
 - Deploying applications: After provisioning the EKS cluster using the module, use `kubectl` to deploy your applications to the EKS cluster. Refer to the Kubernetes documentation for more details on deploying and managing applications.
 
-For detailed usage instructions and examples, refer to the project's [documentation](docs/).
+For detailed usage instructions and examples, refer to the project's [documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster).
 
