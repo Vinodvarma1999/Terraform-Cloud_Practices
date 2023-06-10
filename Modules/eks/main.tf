@@ -64,7 +64,7 @@ resource "aws_iam_role_policy_attachment" "example" {
 # Create a EKS Cluster
 resource "aws_eks_cluster" "example" {
  name           = var.eks_name
- role_arn       = aws_iam_role.example.arn
+ role_arn       = aws_iam_role.cluster.arn
  version        = var.eks_cluster_version 
  encryption_config {
    provider = {
