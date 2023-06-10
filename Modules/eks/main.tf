@@ -145,7 +145,7 @@ resource "aws_security_group_rule" "node_cluster_inbound" {
  type        = "ingress"
  from_port   = 1025
  to_port     = 65535
- protocol    = tcp
+ protocol    = "tcp"
  security_group_id  = aws_security_group.eks_node.id
  source_security_group_id  = aws_security_group.eks_cluster.id
 }
@@ -155,7 +155,7 @@ resource "aws_security_group_rule" "cluster_inbound" {
  type        = "ingress"
  from_port   = 443
  to_port     = 443
- protocol    = tcp
+ protocol    = "tcp"
  security_group_id  = aws_security_group.eks_cluster.id
  source_security_group_id  = aws_security_group.eks_node.id
 }
@@ -165,7 +165,7 @@ resource "aws_security_group_rule" "cluster_outbound" {
  type        = "egress"
  from_port   = 1024
  to_port     = 65535
- protocol    = tcp 
+ protocol    = "tcp" 
  security_group_id  = aws_security_group.eks_cluster.id
  source_security_group_id  = aws_security_group.eks_node.id
 }
