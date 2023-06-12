@@ -70,7 +70,7 @@ resource "aws_eks_cluster" "example" {
    provider {
      key_arn = var.eks_kms_key
    }
-   resources = {
+   resources {
      secrets = var.eks_secret
      config_maps = var.eks_config_map
    }
