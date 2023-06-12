@@ -23,3 +23,9 @@ output "eks_cluster_id" {
   description = "The ID of the EKS Cluster."
 }
 
+output "eks_openid_connect_provider_url" {
+  value       = aws_eks_cluster.example.identity[0].oidc[0].issuer
+  description = "The URL of the OpenID Connect provider for the EKS Cluster."
+}
+
+
