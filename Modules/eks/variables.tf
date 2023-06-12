@@ -83,14 +83,9 @@ variable "eks_service_ipv4_cidr" {
  description = "The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks"
 } 
 
-variable "eks_config_map" {
- type = string
- description = "Encryption enabled for config_map."
-}
-
-variable "eks_secret" {
- type = string
- description = "Encryption enabled for secrets."
+variable "eks_resource_encryption" {
+ type = list(string)
+ description = "Encryption enabled for specific eks resources."
 }
 
 variable "eks_cluster_sg_name" {
