@@ -23,9 +23,8 @@
     eks_endpoint_private_access = true
     eks_endpoint_public_access  = false
     eks_public_access_cidrs     = ["0.0.0.0/0"]
-    eks_service_ipv4_cidr      = "10.100.0.0/16"
-    eks_config_map             = "true"
-    eks_secret                 = "true"
+    eks_service_ipv4_cidr       = "10.100.0.0/16"
+    eks_resource_encryption     = ["secrets"]
     
     // EKS Cluster Security Group Configuration
     eks_cluster_sg_name        = "MyEKSClusterSG"
