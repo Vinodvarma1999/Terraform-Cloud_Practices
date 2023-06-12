@@ -48,7 +48,7 @@ resource "aws_route_table_association" "example" {
 # Attaching a Subnet_2 to Route table
 resource "aws_route_table_association" "example2" {
  subnet_id       = aws_subnet.example2.id
- route_table_id  = aws_route_table.example2.id
+ route_table_id  = aws_route_table.example.id
 }
 
 # Create a EKS Cluster IAM role
