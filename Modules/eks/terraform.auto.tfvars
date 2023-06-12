@@ -7,6 +7,11 @@
     subnet_availablity_zone    = "us-east-1a"
     public_ip_launch           = true
     subnet_tags                = { Name = "MySubnet" }
+
+    subnet_2_cidr_block          = "10.0.2.0/24"
+    subnet_2_availablity_zone    = "us-east-1b"
+    public_ip_launch_2           = true
+    subnet_2_tags                = { Name = "MySubnet-2" }
     
     // Internet Gateway Configuration
     igw_tags                   = { Name = "MyInternetGateway" }
