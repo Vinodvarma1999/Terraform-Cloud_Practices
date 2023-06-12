@@ -137,5 +137,9 @@ variable "aws_secret_key" {
   type        = string
   description = "Using a secret key to deploy aws resources"
 }
-
+variable "subnet_2_cidr_block" {}         
+variable "subnet_2_availablity_zone" {}
+variable "public_ip_launch_2" {}  
+variable "subnet_2_tags" {}
+    
 
