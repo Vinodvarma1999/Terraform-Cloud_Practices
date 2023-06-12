@@ -16,7 +16,7 @@
     
     // EKS Cluster Configuration
     cluster_iam_role_name      = "MyEKSClusterRole"
-    policy_arn                 = "arn:aws:iam::123456789012:policy/MyEKSPolicy"
+    policy_arn                 = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
     eks_name                   = "MyEKS"
     eks_cluster_version        = "1.21"
     eks_kms_key                = "arn:aws:kms:us-east-1:743350769568:key/7553ad25-78a4-4632-a62c-f5efc959088a"
