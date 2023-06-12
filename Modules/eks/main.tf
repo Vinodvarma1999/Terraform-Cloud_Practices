@@ -13,6 +13,15 @@ resource "aws_subnet" "example" {
  tags                     = var.subnet_tags
 }
 
+# Create a Subnet
+resource "aws_subnet" "example2" {
+ vpc_id                   = aws_vpc.example.id
+ cidr_block               = var.subnet_2_cidr_block
+ availability_zone        = var.subnet_2_availablity_zone
+ map_public_ip_on_launch  = var.public_ip_launch_2
+ tags                     = var.subnet_2_tags
+}
+
 # Create a Internet GateWay
 resource "aws_internet_gateway" "example" {
  vpc_id       = aws_vpc.example.id
@@ -30,10 +39,16 @@ resource "aws_route_table" "example" {
  tags          = var.route_table_tags
 }
 
-# Attaching a Subnet to Route table
+# Attaching a Subnet_1 to Route table
 resource "aws_route_table_association" "example" {
  subnet_id       = aws_subnet.example.id
  route_table_id  = aws_route_table.example.id
+}
+
+# Attaching a Subnet_2 to Route table
+resource "aws_route_table_association" "example2" {
+ subnet_id       = aws_subnet.example2.id
+ route_table_id  = aws_route_table.example2.id
 }
 
 # Create a EKS Cluster IAM role
@@ -79,7 +94,7 @@ resource "aws_eks_cluster" "example" {
 
  vpc_config {
    security_group_ids        = [aws_security_group.eks_cluster.id]
-   subnet_ids                = [aws_subnet.example.id]
+   subnet_ids                = [aws_subnet.example.id, aws_subnet.example2.id]
    endpoint_private_access   = var.eks_endpoint_private_access
    endpoint_public_access    = var.eks_endpoint_public_access
    public_access_cidrs       = var.eks_public_access_cidrs 
