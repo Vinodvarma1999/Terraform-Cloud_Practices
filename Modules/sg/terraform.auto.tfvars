@@ -31,6 +31,15 @@ security_group_rules = {
     security_groups  = ["sg-02d517bce8bff0d82"]
     self             = false
   }
+  rule3 = {
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = []
+    ipv6_cidr_blocks = []
+    security_groups  = []
+    self             = true
+  }
 }
 
 # Egress Rules
