@@ -26,9 +26,9 @@ security_group_rules = {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = []
     ipv6_cidr_blocks = []
-    security_groups  = []
+    security_groups  = ["sg-02d517bce8bff0d82"]
     self             = false
   }
 }
