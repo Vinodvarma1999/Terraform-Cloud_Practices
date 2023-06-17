@@ -1,6 +1,6 @@
 resource "aws_security_group" "example" {
   name        = var.sg_name
-  description = ""
+  description = "This is use to create a Security group"
   vpc_id      = var.vpc_id
   tags        = var.sg_tags
 
