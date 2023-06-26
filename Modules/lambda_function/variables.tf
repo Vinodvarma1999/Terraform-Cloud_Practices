@@ -48,3 +48,6 @@ variable "list_of_security_groups" {
   description = "List of security group IDs for the Lambda function's VPC configuration"
   type        = list(string)
 }
+
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
