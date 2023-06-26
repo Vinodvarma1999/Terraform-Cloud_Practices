@@ -1,7 +1,7 @@
 role_name                 = "my-role"
 policy_name               = "my-policy"
 iam_policy_actions        = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents", "ec2:CreateNetworkInterface", "ec2:DescribeNetworkInterfaces", "ec2:DeleteNetworkInterface"]
-iam_policy_resource       = ["arn:aws:logs:*:*:*"]
+iam_policy_resource       = "*"
 function_name             = "my-func"
 s3_bucket                 = "mylambdabucket05102923"
 s3_key                    = "index.zip"
