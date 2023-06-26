@@ -9,6 +9,11 @@ variable "principal_service" {
   default     = "lambda.amazonaws.com"
 }
 
+variable "policy_name" {
+  description = "Name of the IAM policy"
+  type        = string
+}
+
 variable "iam_policy_actions" {
   description = "List of actions for IAM policy"
   type        = list(string)
