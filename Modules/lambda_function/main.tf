@@ -35,7 +35,7 @@ resource "aws_lambda_function" "example" {
   s3_key           = var.s3_key
   role             = aws_iam_role.example.arn
   runtime          = var.runtime
-
+  handler          = var.handler
   vpc_config {
     subnet_ids         = var.list_of_subnets
     security_group_ids = var.list_of_security_groups
