@@ -29,15 +29,15 @@ variable "function_name" {
   type        = string
 }
 
-# variable "filename" {
-#   description = "Path to the Lambda function deployment package"
-#   type        = string
-# }
+variable "s3_bucket" {
+  description = "Name of the S3 bucket containing the Lambda deployment package"
+  type        = string
+}
 
-# variable "handler" {
-#   description = "Handler of the Lambda function"
-#   type        = string
-# }
+variable "s3_key" {
+  description = "Key of the Lambda deployment package in the S3 bucket"
+  type        = string
+}
 
 variable "runtime" {
   description = "Runtime for the Lambda function"
@@ -49,10 +49,10 @@ variable "list_of_subnets" {
   type        = list(string)
 }
 
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
-
 variable "list_of_security_groups" {
   description = "List of security group IDs for the Lambda function's VPC configuration"
   type        = list(string)
 }
+
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
