@@ -21,7 +21,7 @@ variable "iam_policy_actions" {
 
 variable "iam_policy_resource" {
   description = "ARN of the resource"
-  type        = list(string)
+  type        = string
 }
 
 variable "function_name" {
