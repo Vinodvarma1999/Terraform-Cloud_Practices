@@ -31,9 +31,9 @@ resource "aws_iam_role_policy_attachment" "example" {
 
 resource "aws_lambda_function" "example" {
   function_name    = var.function_name
-  filename         = var.filename
-  source_code_hash = filebase64sha256(var.filename)
-  handler          = var.handler
+#  filename         = var.filename
+#  source_code_hash = filebase64sha256(var.filename)
+#  handler          = var.handler
   role             = aws_iam_role.example.arn
   runtime          = var.runtime
 
