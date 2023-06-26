@@ -2,6 +2,7 @@ role_name                 = "my-role"
 policy_name               = "my-policy"
 iam_policy_actions        = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"]
 iam_policy_resource       = ["arn:aws:logs:*:*:*"]
+function_name             = my-func
 s3_bucket                 = "mylambdabucket05102923"
 s3_key                    = "index.py"
 runtime                   = "python3.10"
