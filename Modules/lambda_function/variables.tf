@@ -9,11 +9,6 @@ variable "principal_service" {
   default     = "lambda.amazonaws.com"
 }
 
-variable "policy_name" {
-  description = "Name of the IAM policy"
-  type        = string
-}
-
 variable "iam_policy_actions" {
   description = "List of actions for IAM policy"
   type        = list(string)
@@ -29,15 +24,15 @@ variable "function_name" {
   type        = string
 }
 
-variable "filename" {
-  description = "Path to the Lambda function deployment package"
-  type        = string
-}
+# variable "filename" {
+#   description = "Path to the Lambda function deployment package"
+#   type        = string
+# }
 
-variable "handler" {
-  description = "Handler of the Lambda function"
-  type        = string
-}
+# variable "handler" {
+#   description = "Handler of the Lambda function"
+#   type        = string
+# }
 
 variable "runtime" {
   description = "Runtime for the Lambda function"
@@ -53,6 +48,3 @@ variable "list_of_security_groups" {
   description = "List of security group IDs for the Lambda function's VPC configuration"
   type        = list(string)
 }
-
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
