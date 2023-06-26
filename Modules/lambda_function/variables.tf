@@ -44,6 +44,11 @@ variable "runtime" {
   type        = string
 }
 
+variable "handler" {
+  description = "Handler of the Lambda function"
+  type        = string
+}
+
 variable "list_of_subnets" {
   description = "List of subnet IDs for the Lambda function's VPC configuration"
   type        = list(string)
