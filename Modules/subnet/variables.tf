@@ -18,14 +18,6 @@ variable "tags" {
   description = "A map of tags to assign to the resource"
 }
 
-variable "route_table_id" {
-  description = "The ID of the route table"
-}
-
-variable "network_acl_id" {
-  description = "The ID of the network ACL"
-}
-
 
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
