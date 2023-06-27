@@ -18,5 +18,24 @@ variable "tags" {
   description = "A map of tags to assign to the resource"
 }
 
+variable "enable_routing" {
+  description = "Flag to enable/disable route table association"
+  default     = false
+}
+
+variable "route_table_id" {
+  description = "The ID of the route table"
+}
+
+variable "enable_network_acl" {
+  description = "Flag to enable/disable network ACL association"
+  default     = false
+}
+
+variable "network_acl_id" {
+  description = "The ID of the network ACL"
+}
+
+
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
