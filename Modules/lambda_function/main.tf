@@ -10,6 +10,7 @@ resource "aws_iam_role" "example" {
       }
     }]
   })
+  tags = var.iam_role_tags
 }
 
 resource "aws_iam_policy" "example" {
@@ -40,4 +41,5 @@ resource "aws_lambda_function" "example" {
     subnet_ids         = var.list_of_subnets
     security_group_ids = var.list_of_security_groups
   }
+  tags  = var.lambda_function_tags
 }
