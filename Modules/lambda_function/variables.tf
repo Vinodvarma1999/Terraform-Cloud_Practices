@@ -59,5 +59,15 @@ variable "list_of_security_groups" {
   type        = list(string)
 }
 
+variable "iam_role_tags" {
+  type = map(string)
+  description = "xx"
+}
+
+variable "lambda_function_tags" {
+  type = map(string)
+  description = "xx"
+}
+
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
