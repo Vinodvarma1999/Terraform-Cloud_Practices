@@ -17,3 +17,6 @@ variable "tags" {
   type = map(string)
   description = "A map of tags to assign to the resource"
 }
+
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
