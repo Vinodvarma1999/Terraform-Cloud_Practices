@@ -1,4 +1,5 @@
 role_name                 = "my-role"
+iam_role_tags             = { Name = "Lambda-role" }
 policy_name               = "my-policy"
 iam_policy_actions        = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents", "ec2:CreateNetworkInterface", "ec2:DescribeNetworkInterfaces", "ec2:DeleteNetworkInterface"]
 iam_policy_resource       = "*"
